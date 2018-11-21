@@ -24,13 +24,23 @@ Cinema.prototype.filterByGenre = function (genre) {
 };
 
 Cinema.prototype.isFilmInYear = function (year) {
-  // let result = this.films.reduce((accum, film) => {
-  //   return (accum || film.year === year);
-  // }, false);
-
   let result = this.films.some((film) => {
     return film.year === year;
-  })
+  });
+  return result;
+};
+
+Cinema.prototype.lengthOver = function (length) {
+  let result = this.films.every((film) => {
+    return film.length >= length;
+  });
+  return result;
+};
+
+Cinema.prototype.totalRunningTime = function () {
+  let result = this.films.reduce((total, film) => {
+    return total + film.length;
+  }, 0);
 
   return result;
 };

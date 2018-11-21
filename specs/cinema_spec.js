@@ -54,8 +54,18 @@ describe('Cinema', function () {
     const actual = cinema.isFilmInYear(2015)
     assert.strictEqual(actual, false);
   });
-  
-  it('should be able to check whether all films are over a particular length');
-  it('should be able to calculate total running time of all films');
+
+  it('should be able to check whether all films are over a particular length', function() {
+    const actual = cinema.lengthOver(90);
+    const actual2 = cinema.lengthOver(100);
+    assert.strictEqual(actual, true);
+    assert.strictEqual(actual2, false);
+  });
+
+  it('should be able to calculate total running time of all films', function () {
+    const actual = cinema.totalRunningTime();
+    const expected = 111 + 164 + 96 + 134 + 117;
+    assert.strictEqual(actual, expected);
+  });
 
 });

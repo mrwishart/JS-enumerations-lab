@@ -68,4 +68,10 @@ describe('Cinema', function () {
     assert.strictEqual(actual, expected);
   });
 
+  it('should be able to filter by year', function () {
+    const actual = cinema.filterByProperty('year', 2016);
+    const expected = [moonlight];
+    assert.deepStrictEqual(actual, expected);
+  });
+
 });
